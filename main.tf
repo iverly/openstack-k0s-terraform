@@ -71,24 +71,17 @@ module "worker" {
 module "k0s-cluster" {
   source = "./modules/k0s-cluster"
 
+  ssh_login_name = var.ssh_login_name
   hosts = concat(
     [for instance in module.control_plane : {
-      role = "controller"
-      ssh = {
-        address  = instance.floating_ip_address
-        port     = 22
-        user     = var.ssh_login_name
-        key_path = var.public_key_pair_path
-      }
+      role                = "controller"
+      private_ip_address  = instance.access_ip_v4
+      floating_ip_address = instance.floating_ip_address
     }],
     [for instance in module.worker : {
-      role = "worker"
-      ssh = {
-        address  = instance.floating_ip_address
-        port     = 22
-        user     = var.ssh_login_name
-        key_path = var.public_key_pair_path
-      }
+      role                = "worker"
+      private_ip_address  = instance.access_ip_v4
+      floating_ip_address = instance.floating_ip_address
     }]
   )
 
