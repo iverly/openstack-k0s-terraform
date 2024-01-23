@@ -3,5 +3,6 @@ kind: Kustomization
 namespace: flux-system
 
 resources:
+  - infrastructure/cert-manager.yaml
   - infrastructure/ingress-nginx.yaml
   - infrastructure/weave-gitops.yaml
