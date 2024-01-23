@@ -87,3 +87,9 @@ module "k0s-cluster" {
 
   depends_on = [module.bootstrap, module.network, module.security_groups, module.control_plane, module.worker]
 }
+
+module "flux-bootstrap" {
+  source = "./modules/flux-bootstrap"
+
+  cluster_config = module.k0s-cluster.kubeconfig
+}
