@@ -9,6 +9,10 @@ variable "ssh_login_name" {
   description = "Name of the user to use for SSH access"
 }
 
+variable "openstack_auth_url" {
+  description = "URL of the OpenStack authentication endpoint"
+}
+
 #######################
 #       Network       #
 #######################
