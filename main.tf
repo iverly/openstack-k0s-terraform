@@ -57,7 +57,8 @@ module "worker" {
 
   security_groups = [
     module.security_groups.ssh_name,
-    module.security_groups.worker_name
+    module.security_groups.worker_name,
+    module.security_groups.http_name
   ]
 
   network = {
