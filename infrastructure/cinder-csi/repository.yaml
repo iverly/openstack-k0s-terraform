@@ -1,0 +1,8 @@
+---
+apiVersion: source.toolkit.fluxcd.io/v1beta2
+kind: HelmRepository
+metadata:
+  name: cinder-csi
+spec:
+  interval: 24h
+  url: https://kubernetes.github.io/cloud-provider-openstack

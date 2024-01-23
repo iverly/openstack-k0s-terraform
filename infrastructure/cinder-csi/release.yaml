@@ -1,0 +1,19 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: cinder-csi
+spec:
+  interval: 30m
+  chart:
+    spec:
+      chart: openstack-cinder-csi
+      version: "*"
+      sourceRef:
+        kind: HelmRepository
+        name: cinder-csi
+      interval: 12h
+  values:
+    secret:
+      enabled: true
+      name: cinder-csi-credentials
