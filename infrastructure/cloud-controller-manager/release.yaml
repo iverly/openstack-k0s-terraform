@@ -1,0 +1,23 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: cloud-controller-manager
+spec:
+  interval: 30m
+  chart:
+    spec:
+      chart: openstack-cloud-controller-manager
+      version: "*"
+      sourceRef:
+        kind: HelmRepository
+        name: cloud-controller-manager
+      interval: 12h
+  values:
+    secret:
+      enabled: true
+      name: os-cloud-credentials
+    csi:
+      plugin:
+        nodePlugin:
+          kubeletDir: /var/lib/k0s/kubelet
