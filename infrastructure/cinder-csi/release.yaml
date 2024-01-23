@@ -16,7 +16,7 @@ spec:
   values:
     secret:
       enabled: true
-      name: cinder-csi-credentials
+      name: os-cloud-credentials
     csi:
       plugin:
         nodePlugin:
