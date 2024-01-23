@@ -85,3 +85,6 @@ terraform.tfstate.*
 # openstack credentials
 *.openrc
 *.crt
+
+# kubernetes credentials
+kubeconfig.yaml
