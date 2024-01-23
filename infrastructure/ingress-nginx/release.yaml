@@ -15,6 +15,5 @@ spec:
       interval: 12h
   values:
     controller:
-      hostNetwork: true
       service:
-        type: ClusterIP
+        type: LoadBalancer
