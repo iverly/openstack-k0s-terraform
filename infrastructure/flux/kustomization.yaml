@@ -5,5 +5,6 @@ namespace: flux-system
 resources:
   - infrastructure/cert-manager.yaml
   - infrastructure/cinder-csi.yaml
+  - infrastructure/cloud-controller-manager.yaml
   - infrastructure/ingress-nginx.yaml
   - infrastructure/weave-gitops.yaml
