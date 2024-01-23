@@ -17,7 +17,3 @@ spec:
     secret:
       enabled: true
       name: os-cloud-credentials
-    csi:
-      plugin:
-        nodePlugin:
-          kubeletDir: /var/lib/k0s/kubelet
