@@ -10,7 +10,7 @@ resource "helm_release" "this" {
 }
 
 resource "helm_release" "sync" {
-  name = "flux2-sync"
+  name = "openstack-k0s-terraform"
 
   repository = "https://fluxcd-community.github.io/helm-charts"
   chart      = "flux2-sync"
