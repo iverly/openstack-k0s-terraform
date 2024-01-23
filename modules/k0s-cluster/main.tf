@@ -13,7 +13,7 @@ locals {
 
 resource "k0s_cluster" "this" {
   name    = "k0s.cluster"
-  version = "1.27.10+k0s.0"
+  version = "1.28.6+k0s.0"
 
   hosts = local.k0s_hosts
 
