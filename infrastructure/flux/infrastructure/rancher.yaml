@@ -4,6 +4,8 @@ kind: Kustomization
 metadata:
   name: rancher
 spec:
+  dependsOn:
+    - name: ingress-nginx
   interval: 1h
   retryInterval: 1m
   timeout: 5m
