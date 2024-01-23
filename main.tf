@@ -95,9 +95,11 @@ module "flux-bootstrap" {
   cluster_config = module.k0s-cluster.kubeconfig
 }
 
-module "cinder-csi-secret" {
-  source = "./modules/cinder-csi-secret"
+module "os-cloud-secret" {
+  source = "./modules/os-cloud-secret"
 
-  openstack_auth_url = var.openstack_auth_url
-  cluster_config     = module.k0s-cluster.kubeconfig
+  openstack_auth_url         = var.openstack_auth_url
+  cluster_config             = module.k0s-cluster.kubeconfig
+  network_external_id        = var.network_external_id
+  network_internal_subnet_id = module.network.subnet_id
 }

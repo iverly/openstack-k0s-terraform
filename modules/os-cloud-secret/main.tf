@@ -1,5 +1,5 @@
 resource "openstack_identity_application_credential_v3" "this" {
-  name  = "k0s-cinder-csi"
+  name  = "k0s-cloud-credentials"
   roles = ["reader", "member"]
 }
 
@@ -11,12 +11,17 @@ application-credential-id = ${openstack_identity_application_credential_v3.this.
 application-credential-secret = ${openstack_identity_application_credential_v3.this.secret}
 region = ${openstack_identity_application_credential_v3.this.region}
 tls-insecure = true
+
+[LoadBalancer]
+use-octavia=true
+floating-network-id=${var.network_external_id}
+subnet-id=${var.network_internal_subnet_id}
 EOF
 }
 
 resource "kubernetes_secret_v1" "this" {
   metadata {
-    name      = "cinder-csi-credentials"
+    name      = "os-cloud-credentials"
     namespace = "kube-system"
   }
 
