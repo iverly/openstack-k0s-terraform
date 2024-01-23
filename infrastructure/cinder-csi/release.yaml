@@ -17,3 +17,7 @@ spec:
     secret:
       enabled: true
       name: cinder-csi-credentials
+    csi:
+      plugin:
+        nodePlugin:
+          kubeletDir: /var/lib/k0s/kubelet
