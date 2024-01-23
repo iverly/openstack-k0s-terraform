@@ -17,3 +17,4 @@ spec:
     secret:
       enabled: true
       name: os-cloud-credentials
+      create: false
