@@ -18,6 +18,7 @@ In order to run the terraform script, you need to set the following variables in
 - `public_key_pair_path`: Path to the public key pair in your computer
 - `network_external_id`: ID of the external network in OpenStack
 - `ssh_login_name`: SSH login name for the VMs (eg. ubuntu, centos, etc)
+- `openstack_auth_url`: OpenStack auth URL
 
 - `control_plane_image_id`: ID of the image to use for the control plane VMs
 - `control_plane_flavor_id`: ID of the flavor to use for the control plane VMs
@@ -70,6 +71,17 @@ kubectl get nodes
 - Creates the instances. The control plane instances are created with the `control_plane_image_id` image and the `control_plane_flavor_id` flavor. The worker instances are created with the `worker_image_id` image and the `worker_flavor_id` flavor. The instances are created with the security groups created before and the key pair created before. The control plane instances are created with the `control_plane_number` variable and the worker instances are created with the `worker_number` variable.
 
 - Finally, it creates the k0s cluster with the k0sctl binary through the ssh connection to the instances.
+
+## Understanding the flux
+
+The terraform script will create a k0s cluster with flux installed. Flux will be configured to use the git repository (you need to change it inside the terraform if you have clone it). This repository contains the kustomize files to deploy the different components of the cluster.
+
+The cluster will have the following components:
+
+- [cert-manager](https://cert-manager.io)
+- [weave-gitops](https://github.com/weaveworks/weave-gitops)
+- [nginx-ingress](https://kubernetes.github.io/ingress-nginx)
+- [cloud-provider-openstack](https://github.com/kubernetes/cloud-provider-openstack) with cloud controller manager and cinder csi driver
 
 ## Limitations
 
