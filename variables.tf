@@ -30,6 +30,11 @@ variable "network_external_id" {
   description = "ID of the external network"
 }
 
+variable "network_dns_servers" {
+  description = "List of DNS servers"
+  type        = list(string)
+}
+
 #######################
 #    Control Plane    #
 #######################

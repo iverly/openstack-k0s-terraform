@@ -9,3 +9,8 @@ variable "cidr" {
 variable "external_network_id" {
   description = "ID of the external network"
 }
+
+variable "dns_servers" {
+  description = "List of DNS servers"
+  type        = list(string)
+}

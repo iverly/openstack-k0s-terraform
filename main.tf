@@ -11,6 +11,7 @@ module "network" {
   name                = "k0s"
   cidr                = var.network_cidr
   external_network_id = var.network_external_id
+  dns_servers         = var.network_dns_servers
 
   depends_on = [module.bootstrap]
 }

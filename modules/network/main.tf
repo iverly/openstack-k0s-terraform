@@ -9,9 +9,10 @@ resource "openstack_networking_network_v2" "this" {
 }
 
 resource "openstack_networking_subnet_v2" "this" {
-  name       = "${var.name}.subnet"
-  network_id = openstack_networking_network_v2.this.id
-  cidr       = var.cidr
+  name            = "${var.name}.subnet"
+  network_id      = openstack_networking_network_v2.this.id
+  cidr            = var.cidr
+  dns_nameservers = var.dns_servers
 }
 
 resource "openstack_networking_router_interface_v2" "this" {

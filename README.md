@@ -17,6 +17,7 @@ In order to run the terraform script, you need to set the following variables in
 
 - `public_key_pair_path`: Path to the public key pair in your computer
 - `network_external_id`: ID of the external network in OpenStack
+- `network_dns_servers`: DNS servers to use in the network
 - `ssh_login_name`: SSH login name for the VMs (eg. ubuntu, centos, etc)
 - `openstack_auth_url`: OpenStack auth URL
 
