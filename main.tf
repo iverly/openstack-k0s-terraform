@@ -17,6 +17,8 @@ module "network" {
 
 module "security_groups" {
   source = "./modules/security-groups"
+
+  cidr = var.network_cidr
 }
 
 module "control_plane" {

@@ -220,3 +220,27 @@ resource "openstack_networking_secgroup_rule_v2" "konnectivity_2" {
 
   security_group_id = openstack_networking_secgroup_v2.worker.id
 }
+
+resource "openstack_networking_secgroup_rule_v2" "load_balancer_tcp" {
+  direction = "ingress"
+  ethertype = "IPv4"
+  protocol  = "tcp"
+
+  port_range_min   = 30000
+  port_range_max   = 32767
+  remote_ip_prefix = var.cidr
+
+  security_group_id = openstack_networking_secgroup_v2.worker.id
+}
+
+resource "openstack_networking_secgroup_rule_v2" "load_balancer_udp" {
+  direction = "ingress"
+  ethertype = "IPv4"
+  protocol  = "udp"
+
+  port_range_min   = 30000
+  port_range_max   = 32767
+  remote_ip_prefix = var.cidr
+
+  security_group_id = openstack_networking_secgroup_v2.worker.id
+}
