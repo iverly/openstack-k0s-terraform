@@ -1,6 +1,6 @@
 resource "openstack_identity_application_credential_v3" "this" {
   name  = "k0s-cloud-credentials"
-  roles = ["reader", "member"]
+  roles = ["reader", "member", "load-balancer_member"]
 }
 
 locals {
