@@ -4,8 +4,8 @@ resource "openstack_networking_floatingip_v2" "this" {
 
 resource "openstack_compute_instance_v2" "this" {
   name            = var.name
-  image_id        = var.image_id
-  flavor_id       = var.flavor_id
+  image_name        = var.image_name
+  flavor_name       = var.flavor_name
   key_pair        = var.public_key_pair
   security_groups = var.security_groups
 
