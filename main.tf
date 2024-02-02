@@ -25,10 +25,10 @@ module "security_groups" {
 module "control_plane" {
   source = "./modules/instance"
   count  = var.control_plane_number
-
+  
   name      = "k0s.control-plane.${count.index}"
-  image_id  = var.control_plane_image_id
-  flavor_id = var.control_plane_flavor_id
+  image_name  = var.control_plane_image_name
+  flavor_name = var.control_plane_flavor_name
 
   public_key_pair = module.bootstrap.public_key_pair_name
   ssh_login_name  = var.ssh_login_name
@@ -52,8 +52,8 @@ module "worker" {
   count  = var.worker_number
 
   name      = "k0s.worker.${count.index}"
-  image_id  = var.worker_image_id
-  flavor_id = var.worker_flavor_id
+  image_name  = var.worker_image_name
+  flavor_name = var.worker_flavor_name
 
   public_key_pair = module.bootstrap.public_key_pair_name
   ssh_login_name  = var.ssh_login_name

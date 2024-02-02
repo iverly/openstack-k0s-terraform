@@ -21,12 +21,12 @@ In order to run the terraform script, you need to set the following variables in
 - `ssh_login_name`: SSH login name for the VMs (eg. ubuntu, centos, etc)
 - `openstack_auth_url`: OpenStack auth URL
 
-- `control_plane_image_id`: ID of the image to use for the control plane VMs
-- `control_plane_flavor_id`: ID of the flavor to use for the control plane VMs
+- `control_plane_image_name`: ID of the image to use for the control plane VMs
+- `control_plane_flavor_name`: ID of the flavor to use for the control plane VMs
 - `control_plane_number`: Number of control plane VMs to create
 
-- `worker_image_id`: ID of the image to use for the worker VMs
-- `worker_flavor_id`: ID of the flavor to use for the worker VMs
+- `worker_image_name`: ID of the image to use for the worker VMs
+- `worker_flavor_name`: ID of the flavor to use for the worker VMs
 - `worker_number`: Number of worker VMs to create
 
 Once the variables are set, you can initialize terraform and run it:
@@ -69,7 +69,7 @@ kubectl get nodes
 
 - Then, it creates a few security groups, including the one that opens the SSH port to the world. A security group is created to access the Kubernetes API from the outside. And two security groups are created to allow the communication between the control plane and the workers and between the workers themselves.
 
-- Creates the instances. The control plane instances are created with the `control_plane_image_id` image and the `control_plane_flavor_id` flavor. The worker instances are created with the `worker_image_id` image and the `worker_flavor_id` flavor. The instances are created with the security groups created before and the key pair created before. The control plane instances are created with the `control_plane_number` variable and the worker instances are created with the `worker_number` variable.
+- Creates the instances. The control plane instances are created with the `control_plane_image_name` image and the `control_plane_flavor_name` flavor. The worker instances are created with the `worker_image_name` image and the `worker_flavor_name` flavor. The instances are created with the security groups created before and the key pair created before. The control plane instances are created with the `control_plane_number` variable and the worker instances are created with the `worker_number` variable.
 
 - Finally, it creates the k0s cluster with the k0sctl binary through the ssh connection to the instances.
 

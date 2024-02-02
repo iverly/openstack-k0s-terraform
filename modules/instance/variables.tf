@@ -2,11 +2,11 @@ variable "name" {
   description = "Name of the instance"
 }
 
-variable "image_id" {
+variable "image_name" {
   description = "Image to use for the instance"
 }
 
-variable "flavor_id" {
+variable "flavor_name" {
   description = "Flavor to use for the instance"
 }
 
